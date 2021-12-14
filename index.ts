@@ -11,6 +11,10 @@ class Book {
     readonly weight: number,
     readonly pages: number
   ) {}
+
+  getBookInfo(): string {
+    return `Author: ${this.author} ,Title: ${this.title} ,Year: ${this.year} ,Weight: ${this.weight} ,Pages: ${this.pages}`;
+  }
 }
 
 class Bookshelf {
@@ -50,6 +54,10 @@ class Bookshelf {
 
     return winnerAuthorName;
   }
+
+  printBooks(): string {
+    return this.data.map((book) => book.getBookInfo()).join('\n');
+  }
 }
 
 const bs = new Bookshelf();
@@ -66,3 +74,5 @@ console.log(
   'get author of most written pages:',
   bs.getAuthorOfMostWrittenPages()
 );
+
+console.log(bs.printBooks());
